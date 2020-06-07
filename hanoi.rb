@@ -13,6 +13,24 @@ class Hanoi
         ]
     end
 
+    def instructions
+        puts %Q(
+            TOWERS OF HANOI!!!
+            ---------------
+            How to play:
+                The game board consist of three stacks
+                The starting stack contains 3 pieces ordered ascendingly
+                The goal of the game is to move the pieces so that all the
+                pieces are placed in the third stack in ascending order.
+
+             Rules:
+                You cannot move a piece off the board
+                You cannot play a piece on top of another 
+                You cannot move a piece onto a stack if that 
+                stack's top piece value is lesser than moving piece
+            )
+    end
+
     def get_move
         puts response[0]
         move = gets.chomp.split(',').map(&:to_i)        
