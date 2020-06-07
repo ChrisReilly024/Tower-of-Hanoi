@@ -7,7 +7,8 @@ class Hanoi
         [
             'Move piece from which stack to which stack? input format #,# ex.(1,2)',
             'Invalid input, either or both stacks do not exist, try again',
-            'Stack error, cannot move a piece ontop of a smaller piece'
+            'Stack error, cannot move a piece on top of a smaller piece, try again',
+            'Stack error, move stack is empty, try again'
         ]
     end
 
@@ -31,15 +32,27 @@ class Hanoi
 
     def move_piece(move)
         @board[move[1]].unshift(@board[move[0]].shift)
+        if !valid_move?(move)
+            get_move
+            return false
+        else
+            return true
+        end
     end
 
     def valid_move?(move)
         return true if @board[move[1]].empty?
-        if @board[move[0]].first > @board[move[1]].first
+        if @board[move[0]].empty?
+            puts response[3]
+            return false
+        elsif @board[move[0]].first > @board[move[1]].first
             puts response[2]
             return false
         else
             return true
         end
     end
+
+    
+
 end
