@@ -28,4 +28,7 @@ class Hanoi
         end
     end
 
+    def move_piece(move)
+        @board[move[1]].unshift(@board[move[0]].shift)
+    end
 end
