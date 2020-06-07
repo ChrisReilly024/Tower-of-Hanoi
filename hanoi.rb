@@ -8,7 +8,8 @@ class Hanoi
             'Move piece from which stack to which stack? input format #,# ex.(1,2)',
             'Invalid input, either or both stacks do not exist, try again',
             'Stack error, cannot move a piece on top of a smaller piece, try again',
-            'Stack error, move stack is empty, try again'
+            'Stack error, move stack is empty, try again',
+            'Winner!!!'
         ]
     end
 
@@ -53,6 +54,11 @@ class Hanoi
         end
     end
 
-    
+    def win?
+        @board[2] == [1,2,3]
+    end
 
+    def play
+
+    end
 end
